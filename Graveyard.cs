@@ -21,7 +21,7 @@ namespace Graveyard
     }
     public class Graves
     {
-        public string number { get; set; }
+        public int number { get; set; }
         public string name { get; set; }
         public string life_years { get; set; }
         public int pollutionlevel { get; set; }

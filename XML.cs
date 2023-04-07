@@ -16,8 +16,6 @@ namespace Graveyard
         public static Wreath w = new Wreath();
         public static Chapel ch = new Chapel();
         public static Graves g = new Graves();
-        public static List<object> lists = new List<object>();
-
         public static void GetXMLfile()
         {
             xDoc.Load("graveyard.xml");
@@ -33,14 +31,12 @@ namespace Graveyard
                 Console.WriteLine("ss "+node.Name);
                 if(node.Name == "RitualShop")
                 {
-                    lists.Add(rs);
                     rs.name = node.GetAttribute("Name");
                 }
                 foreach (XmlNode child0 in node.ChildNodes)
                 {
                     if (child0.Name == "Coffin")
                     {
-                        lists.Add(c);
                         foreach (XmlNode child in child0.ChildNodes)
                         {
                             switch (child.Name)
@@ -65,7 +61,6 @@ namespace Graveyard
                     }
                     if (child0.Name == "Wreath")
                     {
-                        lists.Add(w);
                         foreach (XmlNode child in child0.ChildNodes)
                         {
                             switch (child.Name)
@@ -98,7 +93,6 @@ namespace Graveyard
                 if (node.Name == "Chapel")
                 {
                     ch.name = node.GetAttribute("Name");
-                    lists.Add(ch);
                     foreach (XmlNode child in node.ChildNodes)
                     {
                             switch (child.Name)
@@ -126,8 +120,7 @@ namespace Graveyard
             {
                if (node.Name == "Graves")
                {
-                    g.number = node.GetAttribute("Number");
-                    lists.Add(g);
+                    g.number = int.Parse(node.GetAttribute("Number"));
                     foreach (XmlNode child in node.ChildNodes)
                     {
                         switch (child.Name)
